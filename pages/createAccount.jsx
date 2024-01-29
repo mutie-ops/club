@@ -1,4 +1,5 @@
 import React from "react";
+import { StatusBar } from 'expo-status-bar';
 import {Text, View,StyleSheet, ImageBackground,Image,TextInput, Pressable,  KeyboardAvoidingView,Platform} from 'react-native'
 
 
@@ -13,7 +14,7 @@ function CreateAccout(){
     const [password, setPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
 
-    const [toggle, setToggle] = React.useState(false)
+    const [toggle, setToggle] = React.useState(true)
     const [errorMessage, setErrorMessage] = React.useState('')
 
     const [emailError, setEmailError] = React.useState('');
@@ -53,7 +54,7 @@ function CreateAccout(){
     const create_account = 
 
        <ImageBackground source={background} style={styles.container} blurRadius={4}>
-       
+        {/* <StatusBar style={{color:'white'}}/> */}
             <View>
                 <Text style={styles.logoText}>Club Management</Text>
             </View>
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
             paddingHorizontal:10,
             paddingVertical:1,
             borderBottomWidth:1,
-            marginBottom:15,
+            marginBottom:20,
             textDecorationLine:'none'
             
             },
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
                 width:20,
                 height:20,
                 left:220,
-                bottom:26
+                bottom:30
             }
 
     
