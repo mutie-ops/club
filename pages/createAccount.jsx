@@ -14,6 +14,8 @@ function CreateAccout(){
 
     function onSubmitClick(){
 
+        console.log(fullName,email,password,confirmPassword)
+
     }
 
 
@@ -32,23 +34,37 @@ function CreateAccout(){
             <KeyboardAvoidingView behavior={Platform.OS === "android" ? "padding" : "height"}
                                     style={styles.container2}>
                     
-                        <TextInput placeholder="Full Names" style={styles.inputText} placeholderTextColor="#f0f0f0cc"></TextInput>
+                        <TextInput placeholder="Full Names"
+                                     style={styles.inputText} 
+                                     placeholderTextColor="#f0f0f0cc"   
+                                     onChangeText={text=> setFullName(text)}
+                                     value={fullName}></TextInput>
 
                         <TextInput placeholder="Email Address" style={styles.inputText} 
                                     placeholderTextColor="#f0f0f0cc"
                                     keyboardType="email-address" 
                                     autoCapitalize="none" 
-                                    autoCorrect={false} ></TextInput>
+                                    autoCorrect={false}
+                                    onChangeText={text=> setEmail(text)}
+                                    value={email} ></TextInput>
                         {/* {<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>} */}
 
-                        <TextInput placeholder="Password" style={styles.inputText}
-                        placeholderTextColor="#f0f0f0cc"
-                        secureTextEntry></TextInput>
+                        <View>
+                            <TextInput placeholder="Password" style={styles.inputText}
+                            placeholderTextColor="#f0f0f0cc"
+                            secureTextEntry
+                            onChangeText={text=> setPassword(text)}
+                            value={password}></TextInput>
+                            <Image />
+                        </View>
+                       
                         {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
 
                         <TextInput placeholder="ConfirmPassword" style={styles.inputText}
                         placeholderTextColor="#f0f0f0cc"
-                        secureTextEntry></TextInput>
+                        secureTextEntry
+                        onChangeText={text=> setConfirmPassword(text)}
+                        value={confirmPassword}></TextInput>
                         {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
 
             </KeyboardAvoidingView>
@@ -120,8 +136,9 @@ const styles = StyleSheet.create({
 
             container2:{
                 // flex: 1,
-                // justifyContent: "space-evenly",
-                // alignItems: "center",
+                // // justifyContent: "space-evenly",
+                // // alignItems: "center",
+                // padding:
             }
 
     
