@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, View,SafeAreaView,StyleSheet, ImageBackground,StatusBar,Image} from 'react-native'
+import {Text, View,StyleSheet, ImageBackground,Image,TextInput} from 'react-native'
 
 
 function CreateAccout(){
@@ -11,10 +11,16 @@ function CreateAccout(){
        <ImageBackground source={background} style={styles.container} blurRadius={4}>
         
             <View>
-                <Text>THIS IS THE LOGO</Text>
+                <Text style={styles.logoText}>Club Management</Text>
             </View>
             <View style={styles.imageContainer}>
                 <Image source={Logo}  style={styles.logoImage}/>
+            </View>
+            <View>
+                <TextInput placeholder="Full Names" style={styles.inputText} placeholderTextColor="white"></TextInput>
+                <TextInput placeholder="Email Address" style={styles.inputText} placeholderTextColor="white"></TextInput>
+                <TextInput placeholder="Password" style={styles.inputText} placeholderTextColor="white"></TextInput>
+                <TextInput placeholder="ConfirmPassword" style={styles.inputText} placeholderTextColor="white"></TextInput>
             </View>
       
         </ImageBackground>
@@ -30,7 +36,8 @@ const styles = StyleSheet.create({
         // justifyContent:'center',
         paddingTop:100,
         resizeMode:'cover',
-        alignItems:'center'
+        alignItems:'center',
+        gap:60
         
                 },
     imageContainer:{
@@ -43,6 +50,20 @@ const styles = StyleSheet.create({
             width:200,
             height:100,
             resizeMode:'contain'
+            },
+
+            logoText:{
+                color:'#ffffff',
+                fontSize:24,
+                fontWeight:'bold'
+            },
+        inputText:{
+            width:220,
+            borderColor:'#ffffff',
+            paddingHorizontal:10,
+            paddingVertical:1,
+            borderBottomWidth:1,
+            
             }
     
 })
