@@ -2,16 +2,16 @@ import React from "react"
 import {View,StyleSheet, Text} from 'react-native'
 
 
-function OnBoarding(){
+function Home(){
 
 
-const on_boarding =
+const home =
 
 <View style={styles.onBoardContainer}>
-    <Text>Home Screen</Text>
+    <Text>On Boarding Screen</Text>
 </View>
 
-return on_boarding
+return home
 
 }
 const styles =  StyleSheet.create({
@@ -23,4 +23,4 @@ const styles =  StyleSheet.create({
 })
 
 
-export default OnBoarding
+export default Home
