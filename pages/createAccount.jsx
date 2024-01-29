@@ -1,5 +1,5 @@
 import React from "react";
-import {Text, View,SafeAreaView,StyleSheet, ImageBackground,StatusBar} from 'react-native'
+import {Text, View,SafeAreaView,StyleSheet, ImageBackground,StatusBar,Image} from 'react-native'
 
 
 function CreateAccout(){
@@ -13,8 +13,8 @@ function CreateAccout(){
             <View>
                 <Text>THIS IS THE LOGO</Text>
             </View>
-            <View>
-                <Image source={Logo}/>
+            <View style={styles.imageContainer}>
+                <Image source={Logo}  style={styles.logoImage}/>
             </View>
       
         </ImageBackground>
@@ -27,12 +27,23 @@ function CreateAccout(){
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        justifyContent:'center',
+        // justifyContent:'center',
+        paddingTop:100,
         resizeMode:'cover',
         alignItems:'center'
         
-    }
-   
+                },
+    imageContainer:{
+        Width:200,
+        height:100
+                },
+
+
+    logoImage:{
+            width:200,
+            height:100,
+            resizeMode:'contain'
+            }
     
 })
 
