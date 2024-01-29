@@ -8,7 +8,7 @@ function Home(){
 const home =
 
 <View style={styles.onBoardContainer}>
-    <Text>On Boarding Screen</Text>
+    <Text>This is the Home Screen</Text>
 </View>
 
 return home

@@ -14,7 +14,7 @@ export default function App() {
    
    
      <NavigationContainer>
-       <Stack.Navigator initialRouteName='CreateAccount'>
+       <Stack.Navigator initialRouteName='Onboard'>
           <Stack.Screen name='CreateAccount' component={CreateAccout}
                options={{
                 header: () => null, // Hide the header for this screen
