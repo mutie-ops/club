@@ -81,7 +81,6 @@ const styles =  StyleSheet.create({
     },
     getStarted:{
         backgroundColor:'#ffffff2b',
-        
         borderRadius: 24,
         borderWidth: 1,
         borderColor: '#fff', // You can set the border color to any color you prefer
