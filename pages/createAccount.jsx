@@ -27,29 +27,33 @@ function CreateAccout(){
             </View>
             <View style={styles.imageContainer}>
                 <Image source={Logo}  style={styles.logoImage}/>
-            </View>
-            <View >
-                <KeyboardAwareScrollView>
-                    <TextInput placeholder="Full Names" style={styles.inputText} placeholderTextColor="#f0f0f0cc"></TextInput>
+            </View> 
 
-                    <TextInput placeholder="Email Address" style={styles.inputText} 
-                                placeholderTextColor="#f0f0f0cc"
-                                keyboardType="email-address" 
-                                autoCapitalize="none" 
-                                autoCorrect={false} ></TextInput>
-                    {/* {<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>} */}
+            <KeyboardAvoidingView behavior={Platform.OS === "android" ? "padding" : "height"}
+                                    style={styles.container2}>
+                    
+                        <TextInput placeholder="Full Names" style={styles.inputText} placeholderTextColor="#f0f0f0cc"></TextInput>
 
-                    <TextInput placeholder="Password" style={styles.inputText}
-                    placeholderTextColor="#f0f0f0cc"
-                    secureTextEntry></TextInput>
-                    {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
+                        <TextInput placeholder="Email Address" style={styles.inputText} 
+                                    placeholderTextColor="#f0f0f0cc"
+                                    keyboardType="email-address" 
+                                    autoCapitalize="none" 
+                                    autoCorrect={false} ></TextInput>
+                        {/* {<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>} */}
 
-                    <TextInput placeholder="ConfirmPassword" style={styles.inputText}
-                    placeholderTextColor="#f0f0f0cc"
-                    secureTextEntry></TextInput>
-                    {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
-                </KeyboardAwareScrollView>
-            </View>
+                        <TextInput placeholder="Password" style={styles.inputText}
+                        placeholderTextColor="#f0f0f0cc"
+                        secureTextEntry></TextInput>
+                        {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
+
+                        <TextInput placeholder="ConfirmPassword" style={styles.inputText}
+                        placeholderTextColor="#f0f0f0cc"
+                        secureTextEntry></TextInput>
+                        {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
+
+            </KeyboardAvoidingView>
+                
+            
 
             <Pressable onPress={onSubmitClick}>
                 <View style={styles.SubmitInfo}>
@@ -67,15 +71,15 @@ function CreateAccout(){
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        justifyContent:'center',
+        justifyContent:'space-evenly',
         resizeMode:'cover',
         alignItems:'center',
-        gap:50
+        // gap:50
         
                 },
     imageContainer:{
         Width:200,
-        height:100
+        height:50
                 },
 
 
@@ -112,7 +116,14 @@ const styles = StyleSheet.create({
                 padding: 10,
                 alignItems: 'center',
                 width:200
+            },
+
+            container2:{
+                // flex: 1,
+                // justifyContent: "space-evenly",
+                // alignItems: "center",
             }
+
     
 })
 
