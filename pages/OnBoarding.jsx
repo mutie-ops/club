@@ -49,10 +49,10 @@ return on_boarding
 const styles =  StyleSheet.create({
     onBoardContainer:{
         flex:1,
-        justifyContent:'center',
+        justifyContent:'space-evenly',
         alignItems:'center',
-        gap:60
-    },
+        // gap:60
+        },
     imageContainer:{
         Width:200,
         height:100

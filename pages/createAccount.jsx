@@ -5,20 +5,32 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 function CreateAccout(){
     const background = require('../assets/out-door.jpg')
     const Logo = require('../assets/final-logo.png')
+    const eyeOpen =  require('../assets/eye-open.png')
+    const eyeClose =  require('../assets/closed-eye.png')
 
     const [fullName, setFullName] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
 
+    const [toggle, setToggle] = React.useState(false)
 
     function onSubmitClick(){
-
         console.log(fullName,email,password,confirmPassword)
+                             }
 
+    function toggleEye(){
+        setToggle(!toggle)
+    }                     
+
+
+    let eye = eyeOpen
+    if(toggle){
+        eye = eyeClose
     }
 
 
+    console.log('toggle',toggle)
 
     const create_account = 
 
@@ -52,19 +64,24 @@ function CreateAccout(){
                         <View>
                             <TextInput placeholder="Password" style={styles.inputText}
                             placeholderTextColor="#f0f0f0cc"
-                            secureTextEntry
+                            secureTextEntry={toggle}
                             onChangeText={text=> setPassword(text)}
                             value={password}></TextInput>
-                            <Image />
+                            <Pressable onPress={toggleEye}>
+                                <Image source={eye} style={styles.eyeStyle} />
+                            </Pressable>
+                            
                         </View>
                        
                         {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
 
                         <TextInput placeholder="ConfirmPassword" style={styles.inputText}
                         placeholderTextColor="#f0f0f0cc"
-                        secureTextEntry
+                        secureTextEntry={toggle}
                         onChangeText={text=> setConfirmPassword(text)}
                         value={confirmPassword}></TextInput>
+
+                        
                         {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
 
             </KeyboardAvoidingView>
@@ -119,7 +136,7 @@ const styles = StyleSheet.create({
             paddingHorizontal:10,
             paddingVertical:1,
             borderBottomWidth:1,
-            marginBottom:20,
+            marginBottom:15,
             textDecorationLine:'none'
             
             },
@@ -139,6 +156,13 @@ const styles = StyleSheet.create({
                 // // justifyContent: "space-evenly",
                 // // alignItems: "center",
                 // padding:
+            },
+            eyeStyle:{
+                position:'absolute',
+                width:20,
+                height:20,
+                left:220,
+                bottom:26
             }
 
     
