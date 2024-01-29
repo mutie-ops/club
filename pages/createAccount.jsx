@@ -14,23 +14,27 @@ function CreateAccout(){
     const [confirmPassword, setConfirmPassword] = React.useState('');
 
     const [toggle, setToggle] = React.useState(false)
+    const [errorMessage, setErrorMessage] = React.useState('')
+
 
     function onSubmitClick(){
-        console.log(fullName,email,password,confirmPassword)
-                             }
+        if(password.length >0 && password === confirmPassword){
+            console.log(fullName,email,password,confirmPassword)
+            setErrorMessage('')
+        }
+        else{
+            setErrorMessage(<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>)
+        }
+                            
+    }
 
     function toggleEye(){
         setToggle(!toggle)
     }                     
-
-
     let eye = eyeOpen
     if(toggle){
         eye = eyeClose
     }
-
-
-    console.log('toggle',toggle)
 
     const create_account = 
 
@@ -73,7 +77,7 @@ function CreateAccout(){
                             
                         </View>
                        
-                        {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
+                        {errorMessage}
 
                         <TextInput placeholder="ConfirmPassword" style={styles.inputText}
                         placeholderTextColor="#f0f0f0cc"
@@ -82,7 +86,7 @@ function CreateAccout(){
                         value={confirmPassword}></TextInput>
 
                         
-                        {/* {<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>} */}
+                        {errorMessage}      
 
             </KeyboardAvoidingView>
                 
