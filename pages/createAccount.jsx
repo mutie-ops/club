@@ -1,6 +1,6 @@
 import React from "react";
 import {Text, View,StyleSheet, ImageBackground,Image,TextInput, Pressable,  KeyboardAvoidingView,Platform} from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 
 function CreateAccout(){
     const background = require('../assets/out-door.jpg')
@@ -16,11 +16,25 @@ function CreateAccout(){
     const [toggle, setToggle] = React.useState(false)
     const [errorMessage, setErrorMessage] = React.useState('')
 
+    const [emailError, setEmailError] = React.useState('');
+
+    function validateEmail(email) {
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        return emailRegex.test(email);
+    }
+
 
     function onSubmitClick(){
         if(password.length >0 && password === confirmPassword){
-            console.log(fullName,email,password,confirmPassword)
-            setErrorMessage('')
+            if (validateEmail(email)) {
+                console.log(fullName, email, password, confirmPassword);
+                setErrorMessage(''); // Clear the error message
+                setEmailError('')
+            } else {
+                setEmailError(<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>);
+            }
         }
         else{
             setErrorMessage(<Text style={{fontSize:12,color:'red'}}>Password Dont Match</Text>)
@@ -63,7 +77,7 @@ function CreateAccout(){
                                     autoCorrect={false}
                                     onChangeText={text=> setEmail(text)}
                                     value={email} ></TextInput>
-                        {/* {<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>} */}
+                        {emailError}
 
                         <View>
                             <TextInput placeholder="Password" style={styles.inputText}
