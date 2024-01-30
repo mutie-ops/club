@@ -1,6 +1,9 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import {Text, View,StyleSheet, ImageBackground,Image,TextInput, Pressable,  KeyboardAvoidingView,Platform} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
+
+
 
 
 function CreateAccout(){
@@ -26,13 +29,15 @@ function CreateAccout(){
         return emailRegex.test(email);
     }
 
+    const navigation =  useNavigation()
 
     function onSubmitClick(){
-        if(password.length >0 && password === confirmPassword){
+        if(password.length > 0 && password === confirmPassword){
             if (validateEmail(email)) {
                 console.log(fullName, email, password, confirmPassword);
                 setErrorMessage(''); // Clear the error message
                 setEmailError('')
+                navigation.navigate('Home')
             } else {
                 setEmailError(<Text style={{fontSize:12,color:'red'}}>Incorrect Email Fomart</Text>);
             }
