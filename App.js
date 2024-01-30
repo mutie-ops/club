@@ -16,6 +16,18 @@ const Stack =  createNativeStackNavigator()
 const Tab =  createBottomTabNavigator()
 const Drawer = createDrawerNavigator()
 
+
+function DrawerTabs(){
+
+  return(
+    <Drawer.Navigator>
+        <Drawer.Screen name='Schedule Event' component={ScheduleEvent} />
+        <Drawer.Screen name='Event Reports' component={EventReports} />
+        <Drawer.Screen name='Member Reports' component={MemberReports} />
+    </Drawer.Navigator>
+  )
+}
+
 function HomeTabs() {
   return (
     <Tab.Navigator screenOptions={{
