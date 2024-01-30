@@ -10,23 +10,15 @@ import Event from "./pages/Event";
 import Invite from "./pages/Invites";
 import Payments from "./pages/Payments";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import MemberReports from './pages/MemberReports';
+import ScheduleEvent from './pages/ScheduleEvent';
+import EventReports from './pages/EventReports';
    
 
 const Stack =  createNativeStackNavigator()
 const Tab =  createBottomTabNavigator()
 const Drawer = createDrawerNavigator()
 
-
-function DrawerTabs(){
-
-  return(
-    <Drawer.Navigator>
-        <Drawer.Screen name='Schedule Event' component={ScheduleEvent} />
-        <Drawer.Screen name='Event Reports' component={EventReports} />
-        <Drawer.Screen name='Member Reports' component={MemberReports} />
-    </Drawer.Navigator>
-  )
-}
 
 function HomeTabs() {
   return (
@@ -58,30 +50,27 @@ function HomeTabs() {
                 tabBarIcon:({color})=> <Ionicons name='card' size={15} color={color}/>,
               
               }} />
+      
+      
+      
+
+    
     </Tab.Navigator>
   );
 }
 
 export default function App() {
-  return (
-   
-   
-   <NavigationContainer>
-       <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name='CreateAccount' component={CreateAccout}
-               options={{
-                header: () => null, // Hide the header for this screen
-              }}/>
-          <Stack.Screen name='Onboard'component={OnBoarding}
-             options={{
-              header: () => null, // Hide the header for this screen
-            }}/>
-          {/* <Stack.Screen name='Home'component={Home}/> */}
-          <Stack.Screen name="Home" component={HomeTabs}/>
-       </Stack.Navigator>
-      
-   </NavigationContainer>
-     
+  return ( 
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName='Home'>
+        <Drawer.Screen name='Home' component={HomeTabs} />
+        <Drawer.Screen name='Schedule Event' component={ScheduleEvent} />
+        <Drawer.Screen name='Event Reports' component={EventReports} />
+        <Drawer.Screen name='Member Reports' component={MemberReports} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+
+
    
   );
 }

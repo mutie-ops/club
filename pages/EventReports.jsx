@@ -13,6 +13,4 @@ function EventReports(){
 
 }
 
-
-
 export default  EventReports
