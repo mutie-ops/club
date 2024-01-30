@@ -9,10 +9,12 @@ import Home from './pages/Home';
 import Event from "./pages/Event";
 import Invite from "./pages/Invites";
 import Payments from "./pages/Payments";
+import { createDrawerNavigator } from '@react-navigation/drawer';
    
 
 const Stack =  createNativeStackNavigator()
 const Tab =  createBottomTabNavigator()
+const Drawer = createDrawerNavigator()
 
 function HomeTabs() {
   return (
