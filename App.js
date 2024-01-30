@@ -3,6 +3,7 @@ import CreateAccout from './pages/createAccount';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import OnBoarding from './pages/OnBoarding';
 import Home from './pages/Home';
 import Event from "./pages/Event";
@@ -17,23 +18,31 @@ function HomeTabs() {
   return (
     <Tab.Navigator screenOptions={{
       tabBarActiveTintColor:'white',
-      tabBarInactiveTintColor:'grey',
+      tabBarInactiveTintColor:'#848585',
       tabBarActiveBackgroundColor:'#945906',
       tabBarInactiveBackgroundColor:'#945906'
+      
 
     }}>
 
       <Tab.Screen name="Home" component={Home}  options={{
-                headerShown: false
+                headerShown: false,
+
+                tabBarIcon:({color})=> <Ionicons name='home' size={15} color={color} />
+                
               }}/>
       <Tab.Screen name="Event" component={Event}  options={{
-                headerShown: false
+                headerShown: false,
+                tabBarIcon:({color})=> <Ionicons name='calendar' size={15} color={color}/>
               }}/>
       <Tab.Screen name="Invite" component={Invite} options={{
-                 headerShown: false
+                 headerShown: false,
+                 tabBarIcon:({color})=> <Ionicons name='mail-open' size={15} color={color}/>
               }} />
       <Tab.Screen name="Payments" component={Payments} options={{
-                headerShown: false
+                headerShown: false,
+                tabBarIcon:({color})=> <Ionicons name='card' size={15} color={color}/>,
+              
               }} />
     </Tab.Navigator>
   );

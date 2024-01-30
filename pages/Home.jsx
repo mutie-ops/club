@@ -9,7 +9,7 @@ function Home(){
 
 const home =
 
-    <View>
+    <View style={styles.HomeContainer}>
         <Text>Home Screen</Text>
     </View>
 
